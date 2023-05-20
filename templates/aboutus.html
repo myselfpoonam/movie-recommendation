@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie recommendation system</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        .image {
+            border-radius: 50%;
+        }
+        
+        .nav {
+            font-size: 100px;
+        }
+        
+        .carousel-inner {
+            color: blue 300px;
+        }
+        
+        .list-group1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section class=" bg-blue-300 ">
+        <header class="text-gray-600 body-font -my-8">
+            <div class="container mx-auto flex flex-wrap p-5 flx-col md:flex-row items-center">
+                <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+
+                    <img src="../static/logo.jpg" class="image" width="60px" height="50px">
+                    </svg>
+                    <a href="/" span class="ml-5 text-xl font-bold">MOV</span><span style =color:blue>FLIX</span>
+             </a>
+                    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                        <a href="/" class="mr-10 hover:text-blue-900 font-bold">Home</a>
+                        <a href="/recommendation" class="mr-10 hover:text-blue-900 font-bold">Recommendation</a>
+                        <a href="/about" class="mr-10 hover:text-blue-900 font-bold">About Us</a>
+                    </nav>
+            </div>
+        </header>
+    </section>
+    <section class=" bg-blue-200 ">
+        <div class="carousel-inner  -my-5">
+            <div class="carousel-item active">
+                <div class="container text-center py-3">
+                    <div class="row">
+                        <div class="col">
+                            <img src="../static/DFD.jpg" style="width:350px; height:450px;" class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div class="col">
+                            <h2>Block Diagram Of Our System</h2>
+                            <br>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-primary">• User Input: The user enters the name of a movie they like or preferred.</li>
+                                <li class="list-group-item list-group-item-secondary">• Data Preprocessing: The system retrieves information about the movies from a datasets, like cast, geners, crew and keywords . The data is cleaned and transformed to ensure that it is in a format suitable for features
+                                    extraction
+                                </li>
+                                <li class="list-group-item list-group-item-success">• Features Extraction: The system extracts features from the movie data, such as keyword, cast, crew and genres, that will be calculated similarity scores between movies </li>
+                                <li class="list-group-item list-group-item-danger">• Cosine Similarity: The system calculates the cosine similarity between the features of the input movie and the features of all the other movies in the dataset. This produces a similarity scores for each movie in the datasets</li>
+                                <li class="list-group-item list-group-item-info">• Top-N Recommendation: The system selects the top-N movies with the highest similarity scores and recommends them to the users.</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="text-gray-60  body-font  bg-blue-200" style="margin-top: -30px;">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-col">
+                    <div class="h-1 bg-gray-200 rounded overflow-hidden">
+                        <div class="w-24 h-full bg-indigo-500"></div>
+                    </div>
+                    <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
+
+                        <p class="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0"></p>
+                    </div>
+                </div>
+                <section class="text-gray-600 body-font -my-20">
+                    <div class="container px-5 py-24 mx-auto">
+                        <div class="flex flex-col text-center w-full mb-20">
+                            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Algorithm Details</h1>
+
+                        </div>
+
+                        <section class="text-gray-600 body-font overflow-hidden -my-20">
+                            <div class="container px-5 py-24 mx-auto">
+                                <div class="flex flex-wrap -m-12">
+                                    <div class="p-12 md:w-1/2 flex flex-col items-start">
+                                        <span class="inline-flex text-black bg-blue-300 border-0 py-2 px-6 focus:outline-none hover:bg-blue-400 rounded text-lg">Count Vectorizer</span>
+                                        <br>
+                                        <ul class="list-group">
+                                            <li class="list-group-item list-group-item-white">Using count vectorization, our system <span style="color:blue">"MOVFLIX"</span> can compare the count vectors of different movies to determine which movies are most similar in terms of their content, and make
+                                                recommendations accordingly.<br> In other words, if the count vector of a movie d is represented as CV(d), then <br> CV(d)[i] = frequency of word i in the summary or review of movie d <br>For instance,<br>                                                If the movie "The Dark Knight" is described as "Batman must battle the Joker to save Gotham City," and <br> V = "action," "thriller," "drama," "hero," and "villain," then the count vector for "The Dark Knight"
+                                                would be:
+                                                <br> "The Dark Knight" CV = 0 1 1 1 This indicates that "The Dark Knight" has no instances of "action" but does have one instance of "thriller," one instance of "drama," and one instance of each of "hero"
+                                                and "villain."
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="p-12 md:w-1/2 flex flex-col items-start">
+                                        <span class="inline-flex text-black bg-blue-300 border-0 py-2 px-6 focus:outline-none hover:bg-blue-400 rounded text-lg">Cosine Similarity</span>
+                                        <br>
+
+                                        <ul class="list-group">
+                                            <li class="list-group-item list-group-item-white">The higher the cosine similarity value, the more similar the movies are consider to be, and therefore the more likely that a user who like one movie will also like the other. The formula for cosine similarity
+                                                is as follows:
+                                                <img src="../static/Capture.JPG"> Where V1 and V2 are the features vectors(like: movies genre, actor, and directors.) of the two movies being compared, ||V1||and ||V2|| are their respective magnitudes<br>                                                The dot product of the two features vectors (V1.V2) measures the similarity between the movies in terms of their shared features.<br> while the denominator (||V1||.||V2||) normalizes the results to account
+                                                for difference in the magnitudes of the features vectors.<br> The resulting cosine similarity value ranges from -1 to 1, where a value of 1 indicates that the movies are identical, 0 indicates that they
+                                                are completely dissimilar, and -1 indicate that they are completely opposite.
+
+
+                                            </li>
+                                        </ul>
+
+
+                                    </div>
+                        </section>
+
+                        <section class="text-gray-600 body-font">
+                            <div class="container px-5 py-24 mx-auto">
+                                <div class="flex flex-col text-center w-full mb-20">
+                                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Our Team</h1>
+                                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">The team members were really committed to the project and gave up their precious time to finish it within the allotted period by exchanging knowledge about many aspects to make it helpful and efficient</p>
+                                </div>
+                                <div class="flex flex-wrap -m-2 bg-white-100">
+                                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                            <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="../static/icon.jpg">
+                                            <div class="flex-grow">
+                                                <h2 class="text-gray-900 title-font font-medium">Anita Lamichhane</h2>
+                                                <p class="text-gray-500">Developer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full ">
+                                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                            <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="../static/icon.jpg">
+                                            <div class="flex-grow">
+                                                <h2 class="text-gray-900 title-font font-medium">Poonam Bhandari</h2>
+                                                <p class="text-gray-500">Developer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                                            <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="../static/icon.jpg">
+                                            <div class="flex-grow">
+                                                <h2 class="text-gray-900 title-font font-medium">Pushpa Regmi</h2>
+                                                <p class="text-gray-500">Developer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        </div>
+                </section>
+        </section>
+
+
+        <footer class="text-gray-600 bg-blue-300 body-font">
+            <div class="container px-5 py-5 mx-auto flex items-center sm:flex-row flex-col">
+                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                    <img src="../static/logo.jpg" class="image" width="60px" height="50px">
+                    <span class="ml-3 text-xl">MOV<span style="color: blue;">FLIX</span></span>
+                </a>
+                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Copy—right
+
+                </p>
+                <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a class="text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+        </svg>
+      </a>
+      <a class="ml-3 text-gray-500">
+        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+    </span>
+            </div>
+        </footer>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe " crossorigin="anonymous "></script>
+</body>
+
+</html
